@@ -7,10 +7,10 @@ weight: 50
 
 | Library | Version | Link |
 |------------|---------|------|
-| guzzlehttp/guzzle | 7.7.0 | [npm](https://npmjs.com/package/guzzlehttp/guzzle)  |
-| ramsey/uuid | 4.7.4 | [npm](https://npmjs.com/package/ramsey/uuid)  |
-| openai-php/client | v0.8.5 | [npm](https://npmjs.com/package/openai-php/client)  |
-| aws/aws-sdk-php | 3.306.7 | [npm](https://npmjs.com/package/aws/aws-sdk-php)  |
+| guzzlehttp/guzzle | 7.7.0 | [packagist](https://packagist.org/packages/guzzlehttp/guzzle#7.7.0)  |
+| ramsey/uuid | 4.7.4 | [packagist](https://packagist.org/packages/ramsey/uuid#4.7.4)  |
+| openai-php/client | v0.8.5 | [packagist](https://packagist.org/packages/openai-php/client#v0.8.5)  |
+| aws/aws-sdk-php | 3.306.7 | [packagist](https://packagist.org/packages/aws/aws-sdk-php#3.306.7)  |
 | bcmath | Latest* | [PHP.net](https://www.php.net/manual/en/book.bcmath.php)  |
 | gd | Latest* | [PHP.net](https://www.php.net/manual/en/book.image.php)  |
 | intl | Latest* | [PHP.net](https://www.php.net/manual/en/book.intl.php)  |

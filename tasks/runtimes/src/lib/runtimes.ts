@@ -33,7 +33,7 @@ const getNodeJSDependecies = async (runtime: string, kind: string) => {
             name: dependecy,
             version: dependencies[dependecy],
             docName: 'npm',
-            docUrl: `https://npmjs.com/package/${dependecy}`
+            docUrl: `https://npmjs.com/package/v/${dependencies[dependecy].replace('^','')}`
         })
     }
     return mdFile
@@ -44,11 +44,12 @@ const getPHPDependecies = async (runtime: string, kind: string) => {
     const {require: dependencies} = JSON.parse(await getDependecyFile(runtime, kind, 'composer.json'))
 
     for(const dependecy in dependencies) {
+        const version:string = dependencies[dependecy]
         mdFile += getDependecyRowMD({
             name: dependecy,
-            version: dependencies[dependecy],
-            docName: 'npm',
-            docUrl: `https://npmjs.com/package/${dependecy}`
+            version: version.replaceAll(/\|/g, '\\|'),
+            docName: 'packagist',
+            docUrl: `https://packagist.org/packages/${dependecy}#${version.split('|')[0]}`
         })
     }
     
@@ -85,7 +86,7 @@ const getPythonDependecies = async(runtime: string, kind: string) => {
                 name: name || '',
                 version: version || '',
                 docName: 'PyPI',
-                docUrl: `https://pypi.org/project/${name}`
+                docUrl: `https://pypi.org/project/${name}/${version}`
             })
         }
     }
