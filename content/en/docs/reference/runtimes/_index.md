@@ -39,7 +39,7 @@ OPS follows OpenWhisk's runtime model, where each function invocation occurs in 
 1. **Initialization**: A container is provisioned with the selected runtime.
 2. **Execution**: The function code runs within the container.
 3. **Idle**: The container is paused (but retained) for reuse (Warm Start).
-4. **Destroying**: Idle containers are garbage-collected after a timeout.
+4. **Destroying**: Idle containers are garbage-collected after some time.
 
 ### 2. Cold vs. Warm Starts
 - **Cold Start**: A new container is created, increasing latency.
@@ -48,24 +48,22 @@ OPS follows OpenWhisk's runtime model, where each function invocation occurs in 
 ### 3. Runtime Composition
 Each runtime includes:
 - **Language Interpreter/Compiler**: (e.g., Python 3.12, Node.js 21).
-- **OpenWhisk-Compatible Bootstrap**: A script that listens for triggers and invokes the function.
+- **Action Interface**: A proxy that implements a canonical protocol to integrate with the OpenWhisk platform.
 - **Dependencies**: Preinstalled libraries (e.g., `requests` for Python).
 
 ---
 
-## Supported Runtimes
+## Actions
 
-### 1. Native OPS Runtimes
-| Runtime   | Version      | Entrypoint       |
-|-----------|--------------|------------------|
-| Python    | 3.12         | `__main__.py`    |
-| Node.js   | 21.x         | `index.js`       |
-| PHP       | 8.3          | `index.php`      |
+**Actions** are the fundamental execution units in Apache OpenServerless. They are stateless functions that run on the OpenWhisk platform.
 
-### 2. OpenWhisk-Compatible Runtimes
-OPS supports all OpenWhisk runtimes, including:
-- Java (JDK 11)
-- Go (1.18)
-- Ruby (3.0)
-- .NET Core (3.1)
+An action can be used to update a database, respond to an API call, communicate with another system, ecc.
+
+To use a function as an action, it must conform to the following:
+
+- The function accepts a dictionary as input and produces a dictionary as output. The input and output dictionaries are
+key-value pairs, where the key is a string and the value is any valid JSON value. The dictionaries are
+canonically represented as JSON objects when interfacing to an action via the REST API or the `ops` CLI.
+
+- The function must be called `main`
 
