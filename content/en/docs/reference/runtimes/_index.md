@@ -1,6 +1,6 @@
 ---
 title: Runtimes
-description: OpenServerless' supported runtimes
+description:
 #weight: 60
 draft: false
 ---
@@ -65,5 +65,5 @@ To use a function as an action, it must conform to the following:
 key-value pairs, where the key is a string and the value is any valid JSON value. The dictionaries are
 canonically represented as JSON objects when interfacing to an action via the REST API or the `ops` CLI.
 
-- The function must be called `main`
+- The function must be called `main` or exposed as main
 
