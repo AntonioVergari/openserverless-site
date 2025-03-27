@@ -134,7 +134,7 @@ Datetime            Activation ID                    Kind      Start Duration   
 2024-03-27 19:46:43 64581426b44e4b3d981426b44e3b3d19 nodejs:21  cold  2.033s     success openserverless/asyncAction:0.0.1
 </pre>
   ```
-  wsk activation get 64581426b44e4b3d981426b44e3b3d19
+  ops activation get 64581426b44e4b3d981426b44e3b3d19
   ```
  ```json
   {
